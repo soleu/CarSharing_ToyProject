@@ -1,40 +1,34 @@
-<%@page import="Car.CarDAO2"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@page import="Car.CarDAO"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-	<%
-		CarDAO2 dao = CarDAO2.getInstance();
-		String id = request.getParameter("id");
-		String pw = request.getParameter("pw");
-		if (dao.idpwCheck(id, pw) == true) {
-			System.out.println("user:"+dao.getUserListCount());
-			for (int i = 0; i < dao.getUserListCount(); i++) {
-				if (dao.getUserList().get(i).getId().equals(id)) {
-					session.setAttribute("log", i);
-					System.out.println("i: "+i);
-					break;
-				}
-			}
+<%
+request.setCharacterEncoding("utf-8");
+CarDAO dao=CarDAO.getInstance();
+String id=request.getParameter("id");
+String pw=request.getParameter("pw");
+int check=0;
+if(dao.idpwCheck(id, pw)!=-1){
+	check=dao.idpwCheck(id, pw);
+	session.setAttribute("log",check );
 	%>
 	<script>
-	alert("<%=id%>´Ô È¯¿µÇÕ´Ï´Ù!");
-		window.location.href = "MainPage.jsp";
+	alert("<%=id%>ë‹˜ í™˜ì˜í•©ë‹ˆë‹¤!");
+	window.location.href="MainPage.jsp";
 	</script>
-	<%
-		} else {
-	%>
-	<script>
-		alert("·Î±×ÀÎ Á¤º¸°¡ ÀÏÄ¡ÇÏÁö ¾Ê½À´Ï´Ù.");
-		window.location.href = "SignIn.jsp";
+	<% 
+}else{
+%>
+<script>
+	alert("ë¡œê·¸ì¸ ì •ë³´ê°€ ì¼ì¹˜í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.");
+	window.location.href="SignIn.jsp";
 	</script>
-	<%
-		}
-	%>
+<%} %>
 </body>
 </html>

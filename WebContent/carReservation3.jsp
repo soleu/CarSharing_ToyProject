@@ -1,10 +1,10 @@
 <%@page import="java.util.Date"%>
 <%@page import="java.text.SimpleDateFormat"%>
-<%@page import="Car.CarDAO2"%>
+<%@page import="Car.CarDAO"%>
 <%@page import="Car.CarDTO"%>
+<%@page import="Car.CarDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-  
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,16 +13,17 @@
 </head>
 <body>
 	<h2>예약 신청</h2>
-	<%
+	<%	
+	request.setCharacterEncoding("utf-8");
 		int no = Integer.parseInt(request.getParameter("no"));
 		session.setAttribute("no", no);
-		CarDAO2 dao = CarDAO2.getInstance();
-		CarDTO car=dao.getCarList().get(no);
+		CarDAO dao = CarDAO.getInstance();
+		CarDTO car = dao.getCar(no);
 		int Day = (int) session.getAttribute("Day");
 		long Time = (long) session.getAttribute("Time");
 		long price = (long) session.getAttribute("price");
 
-		SimpleDateFormat dfhm = new SimpleDateFormat("MM - dd (E요일)  HH : mm");
+		SimpleDateFormat dfhm = new SimpleDateFormat("MM - dd (ddd)요일  HH : mm");
 		String startDate = dfhm.format((Date) session.getAttribute("beginDate"));
 		String endDate = dfhm.format((Date) session.getAttribute("finalDate"));
 	%>

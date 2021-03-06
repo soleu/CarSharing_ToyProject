@@ -1,9 +1,8 @@
 <%@page import="Car.UserDTO"%>
 <%@page import="Car.RentedCar"%>
-<%@page import="Car.CarDAO2"%>
+<%@page import="Car.CarDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-  
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,8 +11,7 @@
 </head>
 <body>
 <% 
-int log=(int)session.getAttribute("log");
-if(log==-1){
+if((int)session.getAttribute("log")==-1){
 	%>
 	<script>
 	alert("로그인을 먼저 해주세요!");
@@ -21,19 +19,23 @@ if(log==-1){
 	</script>
 	<% 
 }
-CarDAO2 dao=CarDAO2.getInstance();
+CarDAO dao=CarDAO.getInstance();
 RentedCar rc=new RentedCar();
 UserDTO user;
-user=dao.getUserList().get(log);
+
+int log=(int)session.getAttribute("log");
+user=dao.getUser(log);
 String id=user.getId();
-	rc=dao.findReserved(id);
-	if(rc.getId()==null){
+System.out.println("id : "+id);
+if(dao.reservedId(id)==true){
+	rc=dao.reservedList.get(id);
+	
+}else{
 	%>
 	<script>
 	alert("예약 내역이 존재하지 않습니다.");
 	window.location.href="MainPage.jsp";
 	</script>
-	
 	<% 
 }
 
@@ -50,6 +52,6 @@ String id=user.getId();
 <tr><td>대여 위치 </td><td><%=rc.getRentloc() %></td></tr>
 <tr><td>반납 위치 </td><td><%=rc.getBackloc() %></td></tr>
 </table>
-<button type="button" onclick="window.location.href='MainPage.jsp">목록으로</button>
+<button type="button" onclick="window.location.href=MainPage.jsp">목록으로</button>
 </body>
 </html>

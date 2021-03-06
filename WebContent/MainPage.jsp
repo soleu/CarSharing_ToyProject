@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@page import="Car.CarDAO2"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,39 +30,20 @@ text-decoration:none;
 header a:hover{
 color:#5050FF
 }
-header{
 
-}
 body{
-text-align:center;
-background-color:#e7ffff;
-}
-
-nav{background-color: white;}
+text-align:center;}
 </style>
 </head>
 <body>
-<header >
+<header>
 <a id="title" href="MainPage.jsp?center=main_image.jsp">Car Sharing</a>
-
-<% 
-if(session.getAttribute("log")==null){
-	session.setAttribute("log",-1);
-}
-int log=(int)session.getAttribute("log");
-if(log==-1){ %>
 <a href="SignUp.jsp" >/ Sign Up</a>
 <a href="SignIn.jsp"> Sign In</a>
-<%}else{
-CarDAO2 dao=CarDAO2.getInstance();
-String id=dao.getUserList().get(log).getId();
-%>
-	<a href="Logout.jsp" >Log Out</a>
-	<a href="SignUp.jsp" ><%=id %>님, 로그인 중</a>
-	<% 
-} %>
+
 </header>
 <%String center;
+request.setCharacterEncoding("utf-8");
 if(request.getParameter("center")!=null){
 	center=request.getParameter("center");
 }

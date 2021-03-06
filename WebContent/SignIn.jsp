@@ -1,93 +1,19 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@page import="Car.CarDAO"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
-<title>·Î±×ÀÎ</title>
-
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap');
-body{
-font-family: 'Nanum Gothic', sans-serif;
-text-align:center;
-background-color: #cdfeff;
-}
-
-div{
-margin:auto;
-background-color:white;
-width:800px;
-height:1000px;
-}
-
-table{
-margin:auto;
-}
-table tr{
-width: 300px;
-height: 50px;
-}
-
-.submit {
-  width: 200px;
-  height:30px;
-}
-.btn {
-  float: left; /* ÇÃ·Ô Áß¿ä - ÇÃ·Ô ¿ä¼Ò´Â ¹®¼­»ó ºÎÀ¯(Èå¸£Áö¸¸)ÇÏÁö¸¸ ´ÙÀ½ ¿ä¼Ò¿¡ ¿µÇâÀ» ¹ÌÄ¡°Ô µÈ´Ù. */
-  width: 100%; /* ºÎ¸ğ 400px ¿µ¿ª ¾ÈÀÇ 100% »ç¿ë */
-  text-align: center;
-  margin-top: -4px;
-  border: 4px solid #2ea7fe;
-  background-color: #32b9fe;
-  color:white;
-  font-size:24px;
-  padding-top:22px;
-  padding-bottom:22px;
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  transition: all 0.3s;
-  box-sizing: border-box;
-  text-decoration: none;
-  font-family: 'Nanum Gothic', sans-serif;
-}
-.btn:hover {
-  /* ¹öÆ°¿¡ ¸¶¿ì½º ¿À¹öÇÑ °æ¿ì¿¡ ::after ¿ä¼ÒÀÇ ÄÃ·¯¸¦ ¾Ö´Ï¸ŞÀÌ¼ÇÇÏ±â À§ÇØ Åõ¸íµµ·Î º¯°æ */
-  background-color: transparent;
-  /* or background-color: rgba(0,0,0,0); */
-  color: #0B93BD;
-}
-.submit::after {
-  display: block;
-  width: 0;
-  height: 74px;
-  background-color: #fbfbfb;
-  -webkit-transition: .3s ease;
-  -moz-transition: .3s ease;
-  -o-transition: .3s ease;
-  -ms-transition: .3s ease;
-  transition: .3s ease;
-  content: "";
-}
-</style>
+<meta charset="UTF-8">
+<title>ë¡œê·¸ì¸</title>
 </head>
 <body>
-<div>
-<br><br>
-<h1>·Î±×ÀÎ</h1>
-<small>¾ÆÁ÷ È¸¿øÀÌ ¾Æ´Ï½Ã¶ó¸é, <a href="SignUp.jsp">È¸¿ø°¡ÀÔÇÏ±â</a>¸¦ ´­·¯ÁÖ¼¼¿ä</small>
-<br><br><br>
+<h2>log in</h2>
 <form method="post" action="SignInPro.jsp">
-<table>
-<tr><td>
-¾ÆÀÌµğ </td><td><input type="text" name="id"></td></tr>
-<tr><td>ºñ¹Ğ¹øÈ£ </td><td><input type="password" name="pw"></td></tr>
-<tr ></tr>
-<tr><td colspan="2"><input class="btn" type="submit" value="·Î±×ÀÎ"></td></tr>
-</table>
-<br>
-<button type="button" onclick="window.location.href='MainPage.jsp'">µÚ·Î°¡±â</button>
+ì•„ì´ë”” <input type="text" name="id">
+ë¹„ë°€ë²ˆí˜¸ <input type="password" name="pw">
+<input type="submit" value="ë¡œê·¸ì¸">
+<button type="button" onclick="window.location.href='MainPage.jsp'">ë’¤ë¡œê°€ê¸°</button>
 </form>
-</div>
 </body>
 </html>

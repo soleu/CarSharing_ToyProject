@@ -1,4 +1,4 @@
-<%@page import="Car.CarDAO2"%>
+<%@page import="Car.CarDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -9,9 +9,9 @@
 </head>
 <body>
 <%
-	Car.CarDAO2 dao=Car.CarDAO2.getInstance();
-	dao.getConnection();
-	session.setAttribute("log",-1);
+Car.CarDAO dao=Car.CarDAO.getInstance();
+dao.initCarList();
+session.setAttribute("log",-1);
 %>
 <script>
 window.location.href="MainPage.jsp";

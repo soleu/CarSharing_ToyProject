@@ -1,10 +1,11 @@
-<%@page import="Car.CarDAO2"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@page import="Car.CarDAO"%>
+<%@page import="Car.CarDAO"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
 img {
@@ -16,21 +17,22 @@ img {
 <body>
 	<table>
 		<%
-			String[] oilName = { "ÈÖ¹ßÀ¯", "°æÀ¯", "LPG" };
-			String[] sizeName = { "°æÂ÷", "¼ÒÇüÂ÷", "ÁßÇüÂ÷", "´ëÇüÂ÷" };
+			request.setCharacterEncoding("utf-8");
+			String[] oilName = { "íœ˜ë°œìœ ", "ê²½ìœ ", "LPG" };
+			String[] sizeName = { "ê²½ì°¨", "ì†Œí˜•ì°¨", "ì¤‘í˜•ì°¨", "ëŒ€í˜•ì°¨" };
 			int sizeN = -1;
 			if (request.getParameter("size") != null) {
 				sizeN = Integer.parseInt(request.getParameter("size"));
 			}
 
-			CarDAO2 dao = CarDAO2.getInstance();
-
-			if (sizeN == -1) {//¹ŞÀº°Ô ¾øÀ»¶© ÀüÃ¼Ãâ·Â
+			CarDAO dao = CarDAO.getInstance();
+	
+			if (sizeN == -1) {//ë°›ì€ê²Œ ì—†ì„ë• ì „ì²´ì¶œë ¥
 		%>
-		<th>ÀüÃ¼ Â÷·®</th>
+		<th>ì „ì²´ ì°¨ëŸ‰</th>
 		<%
-			for (int i = 0; i < dao.getCarListCount(); i++) {
-					if (dao.getCarList().get(i).getReserved() == false) {//Ãâ·Â
+			for (int i = 0; i < dao.getCarList().size(); i++) {
+					if (dao.getCarList().get(i).getReserved() == false) {//ì¶œë ¥
 						Car.CarDTO temp = dao.getCarList().get(i);
 		%>
 		<tr>
@@ -38,12 +40,12 @@ img {
 			<td><b><%=temp.getName()%> / <%=oilName[temp.getOil()]%></b></td>
 		</tr>
 		<tr>
-			<td>½Ã°£ ´ç ±İ¾× : <%=temp.getPrice()%>¿ø
+			<td>ì‹œê°„ ë‹¹ ê¸ˆì•¡ : <%=temp.getPrice()%>ì›
 			</td>
 		</tr>
 		<tr>
 			<td><button type="button"
-					onclick="window.location.href='carReservation3.jsp?no=<%=i%>'">¿¹¾àÇÏ±â</button>
+					onclick="window.location.href='carReservation3.jsp?no=<%=i%>'">ì˜ˆì•½í•˜ê¸°</button>
 				<%
 					}
 						}
@@ -51,9 +53,9 @@ img {
 				%>
 			<th><%=sizeName[sizeN]%></th>
 			<%
-				for (int i = 0; i < dao.getCarListCount(); i++) {
+				for (int i = 0; i < dao.getCarList().size(); i++) {
 						if (dao.getCarList().get(i).getReserved() == false
-								&& dao.getCarList().get(i).getCarSize() == sizeN) {//Ãâ·Â
+								&& dao.getCarList().get(i).getCarSize() == sizeN) {//ì¶œë ¥
 							Car.CarDTO temp = dao.getCarList().get(i);
 			%>
 		
@@ -62,12 +64,12 @@ img {
 			<td><b><%=temp.getName()%> / <%=oilName[temp.getOil()]%></b></td>
 		</tr>
 		<tr>
-			<td>½Ã°£ ´ç ±İ¾× : <%=temp.getPrice()%>¿ø
+			<td>ì‹œê°„ ë‹¹ ê¸ˆì•¡ : <%=temp.getPrice()%>ì›
 			</td>
 		</tr>
 		<tr>
 			<td><button type="button"
-					onclick="window.location.href='carReservation3.jsp?no=<%=i%>'">¿¹¾àÇÏ±â</button>
+					onclick="window.location.href='carReservation3.jsp?no=<%=i%>'">ì˜ˆì•½í•˜ê¸°</button>
 				<%
 					}
 						}

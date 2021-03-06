@@ -1,7 +1,8 @@
 <%@page import="Car.CarDTO"%>
-<%@page import="Car.CarDAO2"%>
+<%@page import="Car.CarDAO"%>
 <%@page import="java.util.Date"%>
 <%@page import="java.text.SimpleDateFormat"%>
+<%@page import="Car.CarDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -13,7 +14,7 @@
 </style>
 </head>
 <body>
-	<%
+	<%	request.setCharacterEncoding("utf-8");
 		SimpleDateFormat dfhm = new SimpleDateFormat("yyyyMMddHHmm");
 		SimpleDateFormat dfhm2 = new SimpleDateFormat("yyyy년 MM월 dd일 HH시 mm분");
 

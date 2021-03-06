@@ -3,7 +3,6 @@ package Car;
 import java.util.Date;
 
 public class RentedCar {
-	private String id;//아이디	
 private int carNo;//차번호
 private Date beginDate;//시작 날짜
 private Date endDate;//종료 날짜
@@ -18,8 +17,7 @@ private String backloc;//두는 곳
 public RentedCar() {}
 
 
-public RentedCar(String id,int carNo,Date beginDate,Date endDate,int Day,long Time,long price,String way,String rentloc,String backloc) {
-	this.id=id;
+public RentedCar(int carNo,Date beginDate,Date endDate,int Day,long Time,long price,String way,String rentloc,String backloc) {
 	this.carNo=carNo;
 	this.beginDate=beginDate;
 	this.endDate=endDate;
@@ -30,10 +28,6 @@ public RentedCar(String id,int carNo,Date beginDate,Date endDate,int Day,long Ti
 	this.rentloc=rentloc;
 	this.backloc=backloc;
 	
-}
-
-public String getId() {
-	return id;
 }
 
 public int getCarNo() {

@@ -1,43 +1,39 @@
-<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.Date"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="Car.CarDAO"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
-<title>Â÷·® ¿¹¾à ÆäÀÌÁö</title>
-
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap');
-body{
-font-family: 'Nanum Gothic', sans-serif;}
-</style>
+<meta charset="UTF-8">
+<title>ì°¨ëŸ‰ ì˜ˆì•½ í˜ì´ì§€</title>
 </head>
 <body>
 <%
+request.setCharacterEncoding("utf-8");
 Date d=new Date();
 SimpleDateFormat sf=new SimpleDateFormat("yyyy-mm-dd");
 
 if((int)session.getAttribute("log")==-1){
 	%>
 	<script>
-	alert("·Î±×ÀÎÀ» ¸ÕÀú ÇØÁÖ¼¼¿ä!");
+	alert("ë¡œê·¸ì¸ì„ ë¨¼ì € í•´ì£¼ì„¸ìš”!");
 	window.location.href="MainPage.jsp";
 	</script>
 	<% 
 }
 %>
 <form method="post" action="carReservation2.jsp">
- ´ë¿© ½Ã°£ ÀÔ·Â : 
+ ëŒ€ì—¬ ì‹œê°„ ì…ë ¥ : 
 <input type="date" name="startDate" min="<%=d %>" required>
 <input type="time" name="startTime" min="<%=d %>" step="1800" required>
-<small>´ë¿©½Ã°£Àº 30ºĞ ´ÜÀ§·Î ¼³Á¤ °¡´ÉÇÕ´Ï´Ù.</small>
+<small>ëŒ€ì—¬ì‹œê°„ì€ 30ë¶„ ë‹¨ìœ„ë¡œ ì„¤ì • ê°€ëŠ¥í•©ë‹ˆë‹¤.</small>
 <br>
-¹İ³³ ½Ã°£ ÀÔ·Â : 
+ë°˜ë‚© ì‹œê°„ ì…ë ¥ : 
 <input type="date" name="endDate" required>
 <input type="time" name="endTime"  step="1800" required><br>
-<input type="submit" value="ÀÔ·Â">
+<input type="submit" value="ì…ë ¥">
 </form>
 
 </body>

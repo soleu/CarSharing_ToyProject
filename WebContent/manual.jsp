@@ -1,10 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@page import="Car.CarDAO"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
-<title>ÀÌ¿ë ¾È³»</title>
+<meta charset="UTF-8">
+<title>ì´ìš© ì•ˆë‚´</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@800&family=Lobster&family=Nanum+Gothic&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
@@ -18,61 +19,18 @@ width:150px;
 height:100px;
 }
 
-table{
-width:1000px;
-text-align:center;
-margin:auto;
-background-color:white;
-font-size:15px;
-}
-
-
 </style>
 </head>
-<body style="text-align:center">
+<body>
 <section class="howto">
-<h2>ÀÌ¿ë ¹æ¹ı</h2>
-<img src="img/started.jpg" style="width:1000px; height : 250px;">
-<br>
-<br>
-<br>
-<table>
-<tr><td><img src="img/manual_1.png"></td>
-<td>
-<img src="img/manual_2.png"></td>
-<td>
-<img src="img/manual_4.png"></td>
-<td>
-<img src="img/manual_3.jpg"></td>
-<td>
-<img src="img/manual_5.png"></td>
-</tr>
-<tr><td>
-<b>
-1. »çÀÌÆ® Á¢¼Ó</b></td>
-<td>
-<b>2. È¸¿ø °¡ÀÔ</b></td>
-<td>
-<b>3. Â÷·® ¿¹¾à</b></td>
-<td>
-<b>4. Â÷·® ÀÌ¿ë</b></td>
-<td>
-<b>5. ÁöÁ¤µÈ Àå¼Ò¿¡ Â÷·® ¹İ³³</b></td></tr>
-</table>
-</section>
-<section>
-<br>
-<br>
-<br>
-<h2>Ä«½¦¾î¸µ ¿¡Æ¼ÄÏ</h2>
-<img src="img/ette.jpg" style="width:1000px; height : 250px;">
-<br><br><br>
-<table>
-<tr ><td rowspan="2"><img src="img/smoking.png"></td><td><b>±İ¿¬</b></td><td height="120" rowspan="2"><img src="img/trash-flat.png"></td><td><b>¾²·¹±â ±İÁö</b></td></tr>
-<tr><td width="300"> Àü Â÷·®³»¿¡¼­´Â Èí¿¬ ±İÁöÀÔ´Ï´Ù.<br>Èí¿¬ÀÌ Àû¹ßµÇ¸é Æä³ÎÆ¼ ºñ¿ëÀÌ ºÎ°úµÇ¸ç ¼­ºñ½º ÀÌ¿ëÀÌ ¿µ±¸ ºÒ°¡ÇÕ´Ï´Ù. </td> <td width="300">µå¶óÀÌºù Áß »ı±ä ¾²·¹±â´Â ´ÙÀ½ °í°´À» À§ÇØ Ã¬°Ü¼­ ³»·ÁÁÖ¼¼¿ä. ¹İ³³ Àü, ³²Àº ¾²·¹±â°¡ ÀÖ´ÂÁö ²À È®ÀÎÇØÁÖ¼¼¿ä.</td></tr>
-<tr ><td rowspan="2"><img src="img/oil.jpg"></td><td><b>¿¬·á Ã¼Å©</b></td><td height="120" rowspan="2"><img src="img/car.png"></td><td><b>¹İ³³½Ã°£ ÁØ¼ö</b></td></tr>
-<tr><td width="300"> ´ÙÀ½ °í°´À» À§ÇØ µğÁ©/ÈÖ¹ßÀ¯Â÷·®Àº ±×¸°Ä«³»¿¡ ºñÄ¡µÈ ÁÖÀ¯Ä«µå·Î ÁÖÀ¯¸¦ ÇØÁÖ½Ã°í, Àü±âÂ÷´Â ¹İ³³ ½Ã ÃæÀü±â¸¦ ¿¬°áÇØÁÖ¼¼¿ä. </td> <td width="300" >¾à¼ÓÇÑ ¹İ³³½Ã°£À» ÁöÄÑÁÖ¼¼¿ä. Áö¿¬ÀÌ µÇ´Â °æ¿ì¿¡´Â ¹İ³³½Ã°£ ¿¬ÀåÀ» ÇØÁÖ¼Å¾ß ÇÕ´Ï´Ù.</td></tr>
-</table>
+<h2>ì´ìš© ë°©ë²•</h2>
+<div>
+<img src="img/manual_1.png">
+<img src="img/manual_2.png">
+<img src="img/manual_4.png">
+<img src="img/manual_3.jpg">
+<img src="img/manual_5.png">
+</div>
 </section>
 </body>
 </html>
